@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormControl, NgForm} from '@angular/forms';
+import {FormControl, NgForm, Validators} from '@angular/forms';
 import {CalculParametresService} from '../services/calculParametresService';
 
 
@@ -30,7 +30,12 @@ export class VueAccueilComponent implements OnInit {
     constructor(
         private router: Router,
         private calculParametresService: CalculParametresService
-    ) {}
+    ) {
+
+        /**
+         * TO DO : add form control
+         */
+    }
 
     ngOnInit() {
     }
@@ -41,9 +46,12 @@ export class VueAccueilComponent implements OnInit {
      * @param form
      */
     onSubmit(form: NgForm) {
-        console.log(form.value);
         const ville = this.villeCtrl;
+
+        console.log(this.dateDebutCtrl);
+
         const dateDebut = this.dateDebutCtrl;
+
         const dateFin = this.dateFinCtrl;
 
         this.calculParametresService.addVille(ville, dateDebut, dateFin);
