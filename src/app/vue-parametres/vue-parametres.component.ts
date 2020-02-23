@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { calculParametresService } from '../services/calculParametres.service';
+import { CalculParametresService } from '../services/calculParametresService';
 import { Monument } from '../models/monument.model';
 
 @Component({
@@ -30,7 +30,7 @@ export class VueParametresComponent implements OnInit {
   ];
 
   constructor(private router:Router,
-              private CalculParametresService : calculParametresService) { }
+              private CalculParametresService : CalculParametresService) { }
 
   ngOnInit() {
     this.ville = this.CalculParametresService.ville;

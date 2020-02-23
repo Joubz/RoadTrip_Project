@@ -1,27 +1,43 @@
 <app-boutton-menu></app-boutton-menu>
 <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
-	<div>
-		<div class="form-group col-sm-3">
-			<label for="ville">Choix de la ville</label>
-			<select id="ville" class="form-control" name="ville" ngModel>
-		    	<option value="Lisbonne">Lisbonne</option>
-		    	<option value="Madrid">Madrid</option>
-		    	<option value="Rome">Rome</option>
-		    	<option value="Barcelone">Barcelone</option>
-			</select>
-		</div>
-		
-		<div class="form-group col-sm-4">
-			<label for="date_debut">Date de début du parcours</label>
-			<input id="date_debut" value="date_debut" name="date_debut" type="date" ngModel>
-		</div>
-		<div class="form-group col-sm-4">
-			<label>Date de fin du parcours</label>
-			<input id="date_fin" value="date_fin" name="date_fin" type="date" ngModel>
-		</div>
-	</div>
 
-	<div style="text-align: center" class="col-sm-12">
-		<button type="submit" class="btn btn-success">Valider</button>
-	</div>
+    <mat-card class="accueil-card">
+
+        <div class="row">
+            <div class="form-group col-sm-4">
+
+                <mat-form-field>
+                    <mat-label>Choix de la ville</mat-label>
+                    <mat-select [(value)]="villeCtrl">
+                        <mat-option *ngFor="let city of cities" [value]="city.value">
+                            {{city.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <mat-form-field>
+                    <mat-label>Date de début du parcours</mat-label>
+                    <input matInput [matDatepicker]="dateDebutCtrl">
+                    <mat-datepicker-toggle matSuffix [for]="dateDebutCtrl"></mat-datepicker-toggle>
+                    <mat-datepicker #dateDebutCtrl></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group col-sm-4">
+                <mat-form-field>
+                    <mat-label>Date de fin du parcours</mat-label>
+                    <input matInput [matDatepicker]="dateFinCtrl">
+                    <mat-datepicker-toggle matSuffix [for]="dateFinCtrl"></mat-datepicker-toggle>
+                    <mat-datepicker #dateFinCtrl></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div style="text-align: center" class="col-sm-12">
+            <button type="button submit" class="btn btn-success">Valider</button>
+
+        </div>
+    </mat-card>
 </form>

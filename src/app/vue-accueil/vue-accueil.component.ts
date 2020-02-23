@@ -1,30 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { calculParametresService } from '../services/calculParametres.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormControl, NgForm} from '@angular/forms';
+import {CalculParametresService} from '../services/calculParametresService';
+
+
+interface City {
+    value: string;
+    viewValue: string;
+}
 
 @Component({
-  selector: 'app-vue-accueil',
-  templateUrl: './vue-accueil.component.html',
-  styleUrls: ['./vue-accueil.component.scss']
+    selector: 'app-vue-accueil',
+    templateUrl: './vue-accueil.component.html',
+    styleUrls: ['./vue-accueil.component.scss']
 })
 export class VueAccueilComponent implements OnInit {
+    villeCtrl: FormControl;
+    dateDebutCtrl: FormControl;
+    dateFinCtrl: FormControl;
 
-  constructor(private router:Router, 
-  	private CalculParametresService : calculParametresService) { }
 
-  ngOnInit() {
-  }
+    cities: City[] = [
+        {value: 'Lisbonne', viewValue: 'Lisbonne'},
+        {value: 'Madrid', viewValue: 'Madrid'},
+        {value: 'Rome', viewValue: 'Rome'},
+        {value: 'Barcelone', viewValue: 'Barcelone'}
+    ];
 
-  onSubmit(form : NgForm) {
-  	console.log(form.value);
-  	const ville = form.value['ville'];
-  	const date_debut = form.value['date_debut'];
-  	const date_fin = form.value['date_fin'];
+    constructor(
+        private router: Router,
+        private calculParametresService: CalculParametresService
+    ) {}
 
-  	this.CalculParametresService.addVille(ville, date_debut, date_fin);
+    ngOnInit() {
+    }
 
-  	this.router.navigate(['/parametres']);
-  }
+    /**
+     * Submit the form
+     *
+     * @param form
+     */
+    onSubmit(form: NgForm) {
+        console.log(form.value);
+        const ville = this.villeCtrl;
+        const dateDebut = this.dateDebutCtrl;
+        const dateFin = this.dateFinCtrl;
+
+        this.calculParametresService.addVille(ville, dateDebut, dateFin);
+
+        this.router.navigate(['/parametres']);
+    }
 
 }

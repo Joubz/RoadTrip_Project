@@ -16,7 +16,10 @@ import { MonumentListComponent } from './monument-list/monument-list.component';
 
 import { Monument } from './models/monument.model';
 
-import { calculParametresService } from './services/calculParametres.service';
+import { CalculParametresService } from './services/calculParametresService';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatNativeDateModule, MatDatepickerModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: VueAccueilComponent },
@@ -40,16 +43,22 @@ const appRoutes: Routes = [
     MonumentCardComponent,
     MonumentListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes,
-      { enableTracing: true } ,
-     ),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes,
+            {enableTracing: true},
+        ),
+        BrowserAnimationsModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatCardModule
+    ],
   providers: [
-    calculParametresService
+    CalculParametresService
   ],
   bootstrap: [AppComponent]
 })
