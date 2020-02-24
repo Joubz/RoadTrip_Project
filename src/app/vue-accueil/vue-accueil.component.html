@@ -19,19 +19,18 @@
             <div class="form-group col-lg-4">
                 <mat-form-field>
                     <mat-label>Date de début du parcours</mat-label>
-                    <input matInput [matDatepicker]="picker" [ngModel]="dateDebutCtrl" [ngModelOptions]="{standalone: true}"
-                    >
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <input matInput [matDatepicker]="pickerStartDate" [formControl]="dateDebutCtrl" >
+                    <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerStartDate></mat-datepicker>
                 </mat-form-field>
             </div>
 
             <div class="form-group col-lg-4">
                 <mat-form-field>
                     <mat-label>Date de fin du parcours</mat-label>
-                    <input matInput [matDatepicker]="dateFinCtrl" [ngModel]="dateDebutCtrl" [ngModelOptions]="{standalone: true}">
-                    <mat-datepicker-toggle matSuffix [for]="dateFinCtrl"></mat-datepicker-toggle>
-                    <mat-datepicker #dateFinCtrl></mat-datepicker>
+                    <input matInput [matDatepicker]="pickerEndDate" [formControl]="dateFinCtrl">
+                    <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerEndDate></mat-datepicker>
                 </mat-form-field>
             </div>
         </div>

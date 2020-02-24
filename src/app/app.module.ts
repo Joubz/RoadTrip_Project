@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { VueAccueilComponent } from './vue-accueil/vue-accueil.component';
 import { VueParametresComponent } from './vue-parametres/vue-parametres.component';
 import { VueParcoursComponent } from './vue-parcours/vue-parcours.component';
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
         MatInputModule,
         MatNativeDateModule,
         MatSelectModule,
-        MatCardModule
+        MatCardModule,
+        ReactiveFormsModule
     ],
   providers: [
     CalculParametresService

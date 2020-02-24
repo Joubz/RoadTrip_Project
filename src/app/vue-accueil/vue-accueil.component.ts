@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {FormControl, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {CalculParametresService} from '../services/calculParametresService';
 
 
@@ -18,6 +18,7 @@ export class VueAccueilComponent implements OnInit {
     villeCtrl: FormControl;
     dateDebutCtrl: FormControl;
     dateFinCtrl: FormControl;
+    editForm: FormGroup;
 
 
     cities: City[] = [
@@ -29,12 +30,17 @@ export class VueAccueilComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private calculParametresService: CalculParametresService
+        private calculParametresService: CalculParametresService,
+        private fb: FormBuilder
     ) {
 
-        /**
-         * TO DO : add form control
-         */
+        this.dateDebutCtrl = fb.control('', [Validators.required]);
+        this.dateFinCtrl = fb.control('', [Validators.required]);
+        this.editForm = fb.group({
+            ville: this.villeCtrl,
+            dateDebut: this.dateDebutCtrl,
+            dateFin: this.dateFinCtrl
+        });
     }
 
     ngOnInit() {
@@ -46,13 +52,14 @@ export class VueAccueilComponent implements OnInit {
      * @param form
      */
     onSubmit(form: NgForm) {
-        const ville = this.villeCtrl;
+        const ville = this.editForm.get('ville');
 
         console.log(this.dateDebutCtrl);
+        console.log(this.editForm.get('dateDebut'));
+        
+        const dateDebut = this.editForm.get('dateDebut');
 
-        const dateDebut = this.dateDebutCtrl;
-
-        const dateFin = this.dateFinCtrl;
+        const dateFin = this.editForm.get('dateFin');
 
         this.calculParametresService.addVille(ville, dateDebut, dateFin);
 

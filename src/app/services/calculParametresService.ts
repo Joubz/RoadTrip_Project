@@ -1,6 +1,6 @@
 import {Input} from '@angular/core';
 import {Monument} from '../models/monument.model';
-import {FormControl} from '@angular/forms';
+import {AbstractControl, FormControl} from '@angular/forms';
 
 export class CalculParametresService {
     @Input() ville = '';
@@ -14,7 +14,7 @@ export class CalculParametresService {
     constructor() {
     }
 
-	addVille(ville: FormControl, dateDebut: FormControl, dateFin: FormControl) {
+    addVille(ville: AbstractControl, dateDebut: AbstractControl, dateFin: AbstractControl) {
         this.ville = ville.value;
         this.dateDebut = dateDebut.value;
         this.dateFin = dateFin.value;
