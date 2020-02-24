@@ -33,7 +33,6 @@ export class VueAccueilComponent implements OnInit {
         private calculParametresService: CalculParametresService,
         private fb: FormBuilder
     ) {
-
         this.dateDebutCtrl = fb.control('', [Validators.required]);
         this.dateFinCtrl = fb.control('', [Validators.required]);
         this.editForm = fb.group({
@@ -56,7 +55,7 @@ export class VueAccueilComponent implements OnInit {
 
         console.log(this.dateDebutCtrl);
         console.log(this.editForm.get('dateDebut'));
-        
+
         const dateDebut = this.editForm.get('dateDebut');
 
         const dateFin = this.editForm.get('dateFin');
