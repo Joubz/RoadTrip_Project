@@ -14,6 +14,10 @@ export class MenuComponent implements OnInit {
     ngOnInit() {
     }
 
+    moveToHome() {
+        this.router.navigate(['']);
+    }
+
     moveToModifierParcours() {
         this.router.navigate(['/parametres']);
     }
