@@ -3,7 +3,7 @@
 	<h2>Parcours</h2>
 	<h3>{{ ville }}</h3>
 	<table style="margin: 0 auto; border: 1px black solid;">
-		<td>Heure
+		<td style="width:35px">Heure
 			<tr>07h00</tr>
 			<tr>08h00</tr>
 			<tr>09h00</tr>
@@ -19,14 +19,16 @@
 			<tr>19h00</tr>
 			<tr>20h00</tr>
 		</td>
-			<td style="width:190px" *ngFor="let jour of date; let i = index">
+			<td *ngFor="let jour of date; let i = index">
 				<h4>{{ date[i] }}</h4>
 				<app-monument-card *ngFor="let monument of parcours[i]"
-								[nomMonument] = monument.nomMonument
-								[lieuMonument] = monument.lieuMonument
-								[coutMonument] = monument.coutMonument
-								[debutMonument] = monument.debutMonument
-								[finMonument] = monument.finMonument></app-monument-card>
+								[nomMonument] = monument.getNomMonument()
+								[lieuMonument] = monument.getLieuMonument()
+								[coutMonument] = monument.getCoutMonument()
+								[debutMonument] = monument.getDebutMonument()
+								[finMonument] = monument.getFinMonument()>
+
+				</app-monument-card>
 			</td>
 	</table>
 </div>
