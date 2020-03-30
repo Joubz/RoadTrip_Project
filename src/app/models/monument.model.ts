@@ -1,29 +1,29 @@
 export class Monument {
-    ouvertMonument: number;
-    nomMonument: string;
-    lieuMonument: string;
-    debutMonument: string;
-    finMonument: string;
-    coutMonument: string;
-    dependanceMonument: string = null;
+    private ouvertMonument: number;
+    private nomMonument: string;
+    private lieuMonument: string;
+    private debutMonument: string;
+    private finMonument: string;
+    private coutMonument: string;
+    private dependanceMonument: string = null;
 
     constructor(
-        public _ouvertMonument: number,
-        public _nomMonument: string,
-        public _lieuMonument: string,
-        public _debutMonument: string,
-        public _finMonument: string,
-        public _coutMonument: string,
-        public _dependanceMonument?: string
+        ouvertMonument: number,
+        nomMonument: string,
+        lieuMonument: string,
+        debutMonument: string,
+        finMonument: string,
+        coutMonument: string,
+        dependanceMonument?: string
     ) {
-        this.ouvertMonument = _ouvertMonument;
-        this.nomMonument = _nomMonument;
-        this.lieuMonument = _lieuMonument;
-        this.debutMonument = _debutMonument;
-        this.finMonument = _finMonument;
-        this.coutMonument = _coutMonument;
-        if (_dependanceMonument) {
-            this.dependanceMonument = _dependanceMonument;
+        this.ouvertMonument = ouvertMonument;
+        this.nomMonument = nomMonument;
+        this.lieuMonument = lieuMonument;
+        this.debutMonument = debutMonument;
+        this.finMonument = finMonument;
+        this.coutMonument = coutMonument;
+        if (dependanceMonument) {
+            this.dependanceMonument = dependanceMonument;
         }
     }
 
@@ -56,10 +56,10 @@ export class Monument {
     }
 
     public isDependant() {
-        return this.getDependanceMonument() != null;
+        return this.getDependanceMonument() !== null;
     }
 
     public isOpen() {
-        return this.getOuvertMonument() != 0;
+        return this.getOuvertMonument() !== 0;
     }
 }
