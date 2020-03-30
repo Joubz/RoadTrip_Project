@@ -1,11 +1,16 @@
 td, tr, table {
-	text-align: center;
+  text-align: center;
 }
 
 tr {
-	height: 120px;
+  height: 120px;
 }
 
 td {
-	width:190px;
+  width: 190px;
+}
+
+table {
+  margin: 0 auto;
+  border: 1px black solid;
 }
