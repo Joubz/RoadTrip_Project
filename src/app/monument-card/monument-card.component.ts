@@ -6,11 +6,11 @@ import {Component, Input, OnInit} from '@angular/core';
     styleUrls: ['./monument-card.component.scss']
 })
 export class MonumentCardComponent implements OnInit {
-    @Input() nomMonument: string = 'NaN';
-    @Input() coutMonument: string = 'NaN';
-    @Input() debutMonument: string = 'NaN';
-    @Input() finMonument: string = 'NaN';
-    @Input() lieuMonument: string = 'Erreur injection données';
+    @Input() nomMonument = 'NaN';
+    @Input() coutMonument = 'NaN';
+    @Input() debutMonument = 'NaN';
+    @Input() finMonument = 'NaN';
+    @Input() lieuMonument = 'Erreur injection données';
 
 
     constructor() {
