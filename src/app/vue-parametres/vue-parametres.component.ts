@@ -36,7 +36,7 @@ export class VueParametresComponent implements OnInit {
 
     ngOnInit() {
       this.prixTotal = this.calculPrixTotal();
-        this.ville = this.calculParametresService.ville;
+      this.ville = this.calculParametresService.ville;
     }
 
     moveTo() {
