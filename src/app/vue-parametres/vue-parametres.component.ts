@@ -18,8 +18,8 @@ export class VueParametresComponent implements OnInit {
     monument4 = new Monument(1, 'Panthéon', '1 Rue du Panthéon', '0800', '0950', '0');
     monument5 = new Monument(1, 'Piazza_2 del fuego de la mañana', '1 Rue du piazza_2', '0700', '0900', '0');
     monument6 = new Monument(0, 'Parthénon', '1 Rue du parthénon', '0800', '0950', '0');
-    monument7 = new Monument(1, 'NomRandom', '1 Rue du random', '1400', '1530', '0');
-    monument8 = new Monument(1, 'NomRandom2', '1 Rue du random2', '0800', '0950', '0', 'NomRandom');
+    monument7 = new Monument(1, 'Basilique St Pierre', 'Piazza San Pietro', '0000', '0000', '10');
+    monument8 = new Monument(1, 'Le forum antique', 'Via della Salara Vecchia', '0000', '0000', '5', 'Colisée');
 
     parcoursVisite: Monument[] = [
         this.monument1, this.monument2, this.monument3, this.monument4

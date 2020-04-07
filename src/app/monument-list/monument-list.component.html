@@ -1,10 +1,11 @@
 <li (click)=switch()>
 	<svg>
-		<circle cx="25" cy="17" r="15" stroke="black" stroke-width="1" fill="white" *ngIf=isAvailable()/>
-			<circle cx="25" cy="17" r="15" stroke="black" stroke-width="1" fill="black" *ngIf=!isAvailable()/>
+		<circle cx="25" cy="17" r="15" stroke="black" stroke-width="1" fill="white" *ngIf=isAvailable() />
+			<circle cx="25" cy="17" r="15" stroke="black" stroke-width="1" fill="black" *ngIf=!isAvailable() />
 	</svg>
 	{{ nomMonument }}
-	<span style="color:red" *ngIf=!isOpen()>-- Non ouvert pendant le séjour</span><br>
-	<span style="color:green">{{ coutMonument }}€ </span>
-	<span style="color:green" *ngIf=isDependant()>-- Inclu dans {{ dependanceMonument }}</span>
+	<span class="notOpen" *ngIf=!isOpen()>-- Non ouvert pendant le séjour</span><br>
+	<span class="euro" >{{ coutMonument }}€ </span>
+	<span class="dependancy" *ngIf=isDependant()>-- Inclu dans {{ dependanceMonument }}</span>
 </li>
+
