@@ -18,7 +18,10 @@ import { Monument } from './models/monument.model';
 
 import { CalculParametresService } from './services/calculParametresService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatNativeDateModule, MatDatepickerModule, MatInputModule, MatSelectModule} from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 
 const appRoutes: Routes = [
