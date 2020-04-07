@@ -28,7 +28,6 @@ export class VueParametresComponent implements OnInit {
     parcoursNonVisite: Monument[] = [
         this.monument5, this.monument6, this.monument7, this.monument8
     ];
-    private price: number;
     private tmp: number;
 
     constructor(private router: Router,
