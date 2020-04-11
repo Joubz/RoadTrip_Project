@@ -1,1 +1,47 @@
-<p>vue-sauvegardes works!</p>
+<app-menu></app-menu>
+
+<button mat-raised-button (click)="openCreation()"> Ajouter rdv</button>
+<button mat-raised-button [disabled]="tabParcours.data.length == 0" (click)="deleteParcours(1)"> Supprimer un rdv
+</button>
+<button mat-raised-button [disabled]="true" (click)="updateParcours()"> Modifier un rdv</button>
+
+
+    <table mat-table [dataSource]="tabParcours" class="mat-elevation-z8">
+
+        <!-- Delete Column -->
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let parcours">
+                <mat-radio-button value=""></mat-radio-button>
+            </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef> Ville</th>
+            <td mat-cell *matCellDef="let parcours"> {{parcours.city}} </td>
+        </ng-container>
+
+        <!-- Mail Column -->
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef> Date de début</th>
+            <td mat-cell *matCellDef="let parcours"> {{parcours.startDate}} </td>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef> Date de fin</th>
+            <td mat-cell *matCellDef="let parcours"> {{parcours.endDate}} </td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="iteration">
+            <th mat-header-cell *matHeaderCellDef> Numero</th>
+            <td mat-cell *matCellDef="let parcours"> {{parcours.iteration}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
