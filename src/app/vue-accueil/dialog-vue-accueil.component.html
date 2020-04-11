@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmation </h1>
+<div mat-dialog-content>
+    <p>Voulez vous créer ce parcours ?</p>
+</div>
+<div mat-dialog-actions>
+    <button class="popupButton" mat-button (click)="onNoClick()">Annuler</button>
+    <button class="popupButton" mat-button (click)="onYesClick()" [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+</div>
