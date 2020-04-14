@@ -21,18 +21,21 @@ export class VueSauvegardesComponent implements OnInit {
   private parcours4: Parcours;
   private parcours5: Parcours;
   private parcours6: Parcours;
+  public selected: number;
 
   constructor(
       private router: Router,
   ) { }
 
   ngOnInit() {
-    this.parcours1 = new Parcours('Rome', '03/02/2020', '09/02/2020', '1');
-    this.parcours2 = new Parcours('Rome', '01/03/2020', '05/03/2020', '2');
-    this.parcours3 = new Parcours('Lisbonne', '21/03/2020', '26/03/2020', '1');
-    this.parcours4 = new Parcours('Rome', '28/04/2020', '02/05/2020', '3');
-    this.parcours5 = new Parcours('Barcelone', '03/05/2020', '09/05/2020', '1');
-    this.parcours6 = new Parcours('Rome', '19/05/2020', '25/05/2020', '4');
+    this.selected = -1;
+
+    this.parcours1 = new Parcours(0, 'Rome', '03/02/020', '09/02/2020', '1');
+    this.parcours2 = new Parcours(1, 'Rome', '01/03/2020', '05/03/2020', '2');
+    this.parcours3 = new Parcours(2, 'Lisbonne', '21/03/2020', '26/03/2020', '1');
+    this.parcours4 = new Parcours(3, 'Rome', '28/04/2020', '02/05/2020', '3');
+    this.parcours5 = new Parcours(4, 'Barcelone', '03/05/2020', '09/05/2020', '1');
+    this.parcours6 = new Parcours(5, 'Rome', '19/05/2020', '25/05/2020', '4');
 
 
     this.tabParcours.data.push(this.parcours1);
@@ -45,13 +48,21 @@ export class VueSauvegardesComponent implements OnInit {
     this.tabParcours.filter = '';
   }
 
-  deleteParcours(select: number) {
+  onSelectionChange(select: number) {
+    this.selected = select;
   }
 
-  updateParcours() {
+  deleteParcours(select: number) {
+    this.selected = -1;
+    this.tabParcours.data.splice(select, 1);
+    this.tabParcours.filter = '';
   }
 
   openCreation() {
     this.router.navigate(['']);
+  }
+
+  openModification() {
+    this.router.navigate(['/parametres']);
   }
 }

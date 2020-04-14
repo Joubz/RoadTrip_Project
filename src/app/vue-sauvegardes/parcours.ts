@@ -1,11 +1,13 @@
 export class Parcours {
+    id: number;
     city: string;
     startDate: string;
     endDate: string;
     iteration: string;
 
 
-    constructor(city: string, startDate: string, endDate: string, iteration: string) {
+    constructor(id: number, city: string, startDate: string, endDate: string, iteration: string) {
+        this.id = id;
         this.city = city;
         this.startDate = startDate;
         this.endDate = endDate;

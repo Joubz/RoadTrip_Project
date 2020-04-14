@@ -26,8 +26,4 @@ export class MenuComponent implements OnInit {
         this.router.navigate(['/sauvegarde']);
     }
 
-    SauvegarderParcours() {
-        console.log('Parcours sauvegardé sous le nom : ');
-    }
-
 }
